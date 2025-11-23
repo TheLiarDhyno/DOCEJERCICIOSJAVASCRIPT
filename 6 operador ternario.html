@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operador Ternario - Ejercicios JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .ejercicio {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h3 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        button {
+            background-color: #c0392b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button:hover {
+            background-color: #a93226;
+        }
+        .resultado {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #ecf0f1;
+            border-left: 4px solid #c0392b;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicios: Operador Ternario</h1>
+
+    <!-- Ejercicio 1 -->
+    <div class="ejercicio">
+        <h3>1. Mayor o menor de edad</h3>
+        <button onclick="ejercicio1()">Ejecutar</button>
+        <div class="resultado" id="result1"></div>
+    </div>
+
+    <!-- Ejercicio 2 -->
+    <div class="ejercicio">
+        <h3>2. Par o impar</h3>
+        <button onclick="ejercicio2()">Ejecutar</button>
+        <div class="resultado" id="result2"></div>
+    </div>
+
+    <!-- Ejercicio 3 -->
+    <div class="ejercicio">
+        <h3>3. Mayor de dos números</h3>
+        <button onclick="ejercicio3()">Ejecutar</button>
+        <div class="resultado" id="result3"></div>
+    </div>
+
+    <!-- Ejercicio 4 -->
+    <div class="ejercicio">
+        <h3>4. Calor o Frío según temperatura</h3>
+        <button onclick="ejercicio4()">Ejecutar</button>
+        <div class="resultado" id="result4"></div>
+    </div>
+
+    <!-- Ejercicio 5 -->
+    <div class="ejercicio">
+        <h3>5. Puede votar (mayor de 18)</h3>
+        <button onclick="ejercicio5()">Ejecutar</button>
+        <div class="resultado" id="result5"></div>
+    </div>
+
+    <script>
+        // Ejercicio 1
+        function ejercicio1() {
+            let edad = prompt("Ingresa tu edad:");
+            edad = parseInt(edad);
+            
+            let mensaje = (edad >= 18) ? "Eres mayor de edad" : "Eres menor de edad";
+            mensaje += " (Edad: " + edad + " años)";
+            
+            console.log(mensaje);
+            document.getElementById('result1').style.display = 'block';
+            document.getElementById('result1').innerHTML = mensaje;
+        }
+
+        // Ejercicio 2
+        function ejercicio2() {
+            let numero = prompt("Ingresa un número:");
+            numero = parseInt(numero);
+            
+            let mensaje = (numero % 2 === 0) ? "El número " + numero + " es par" : "El número " + numero + " es impar";
+            
+            console.log(mensaje);
+            document.getElementById('result2').style.display = 'block';
+            document.getElementById('result2').innerHTML = mensaje;
+        }
+
+        // Ejercicio 3
+        function ejercicio3() {
+            let num1 = prompt("Ingresa el primer número:");
+            let num2 = prompt("Ingresa el segundo número:");
+            num1 = parseFloat(num1);
+            num2 = parseFloat(num2);
+            
+            let mayor = (num1 > num2) ? num1 : num2;
+            let mensaje = "El mayor número es: " + mayor + " (entre " + num1 + " y " + num2 + ")";
+            
+            console.log(mensaje);
+            document.getElementById('result3').style.display = 'block';
+            document.getElementById('result3').innerHTML = mensaje;
+        }
+
+        // Ejercicio 4
+        function ejercicio4() {
+            let temperatura = prompt("Ingresa la temperatura:");
+            temperatura = parseFloat(temperatura);
+            
+            let mensaje = (temperatura > 25) ? "Calor" : "Frío";
+            mensaje += " (Temperatura: " + temperatura + "°)";
+            
+            console.log(mensaje);
+            document.getElementById('result4').style.display = 'block';
+            document.getElementById('result4').innerHTML = mensaje;
+        }
+
+        // Ejercicio 5
+        function ejercicio5() {
+            let anioNacimiento = prompt("Ingresa tu año de nacimiento:");
+            anioNacimiento = parseInt(anioNacimiento);
+            let anioActual = 2024;
+            let edad = anioActual - anioNacimiento;
+            
+            let mensaje = (edad >= 18) ? "Puedes votar" : "No puedes votar";
+            mensaje += " (Edad: " + edad + " años)";
+            
+            console.log(mensaje);
+            document.getElementById('result5').style.display = 'block';
+            document.getElementById('result5').innerHTML = mensaje;
+        }
+    </script>
+</body>
+</html>

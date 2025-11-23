@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciclos - Ejercicios JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .ejercicio {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h3 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        button {
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button:hover {
+            background-color: #21618c;
+        }
+        .resultado {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #ecf0f1;
+            border-left: 4px solid #2980b9;
+            display: none;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicios: Ciclos (for, while, do while)</h1>
+
+    <!-- Ejercicio 1 -->
+    <div class="ejercicio">
+        <h3>1. Números del 1 al 10 (for)</h3>
+        <button onclick="ejercicio1()">Ejecutar</button>
+        <div class="resultado" id="result1"></div>
+    </div>
+
+    <!-- Ejercicio 2 -->
+    <div class="ejercicio">
+        <h3>2. Suma del 1 al 100 (while)</h3>
+        <button onclick="ejercicio2()">Ejecutar</button>
+        <div class="resultado" id="result2"></div>
+    </div>
+
+    <!-- Ejercicio 3 -->
+    <div class="ejercicio">
+        <h3>3. Tabla de multiplicar (for)</h3>
+        <button onclick="ejercicio3()">Ejecutar</button>
+        <div class="resultado" id="result3"></div>
+    </div>
+
+    <!-- Ejercicio 4 -->
+    <div class="ejercicio">
+        <h3>4. Primeros 10 números pares (while)</h3>
+        <button onclick="ejercicio4()">Ejecutar</button>
+        <div class="resultado" id="result4"></div>
+    </div>
+
+    <!-- Ejercicio 5 -->
+    <div class="ejercicio">
+        <h3>5. Pedir números hasta uno negativo (do while)</h3>
+        <button onclick="ejercicio5()">Ejecutar</button>
+        <div class="resultado" id="result5"></div>
+    </div>
+
+    <!-- Ejercicio 6 -->
+    <div class="ejercicio">
+        <h3>6. Contar letras 'a' en una palabra (for)</h3>
+        <button onclick="ejercicio6()">Ejecutar</button>
+        <div class="resultado" id="result6"></div>
+    </div>
+
+    <script>
+        // Ejercicio 1
+        function ejercicio1() {
+            let resultado = "";
+            for (let i = 1; i <= 10; i++) {
+                resultado += i + " ";
+                console.log(i);
+            }
+            
+            document.getElementById('result1').style.display = 'block';
+            document.getElementById('result1').innerHTML = "Números: " + resultado;
+        }
+
+        // Ejercicio 2
+        function ejercicio2() {
+            let i = 1;
+            let suma = 0;
+            
+            while (i <= 100) {
+                suma += i;
+                i++;
+            }
+            
+            console.log("La suma del 1 al 100 es: " + suma);
+            document.getElementById('result2').style.display = 'block';
+            document.getElementById('result2').innerHTML = "La suma del 1 al 100 es: " + suma;
+        }
+
+        // Ejercicio 3
+        function ejercicio3() {
+            let numero = prompt("Ingresa un número para ver su tabla de multiplicar:");
+            numero = parseInt(numero);
+            let resultado = "Tabla del " + numero + ":<br>";
+            
+            for (let i = 1; i <= 10; i++) {
+                let multiplicacion = numero * i;
+                resultado += numero + " x " + i + " = " + multiplicacion + "<br>";
+                console.log(numero + " x " + i + " = " + multiplicacion);
+            }
+            
+            document.getElementById('result3').style.display = 'block';
+            document.getElementById('result3').innerHTML = resultado;
+        }
+
+        // Ejercicio 4
+        function ejercicio4() {
+            let contador = 0;
+            let numero = 0;
+            let resultado = "Primeros 10 números pares: ";
+            
+            while (contador < 10) {
+                numero += 2;
+                resultado += numero + " ";
+                console.log(numero);
+                contador++;
+            }
+            
+            document.getElementById('result4').style.display = 'block';
+            document.getElementById('result4').innerHTML = resultado;
+        }
+
+        // Ejercicio 5
+        function ejercicio5() {
+            let numero;
+            let numeros = [];
+            
+            do {
+                numero = prompt("Ingresa un número (número negativo para terminar):");
+                numero = parseFloat(numero);
+                
+                if (numero >= 0) {
+                    numeros.push(numero);
+                    console.log("Número ingresado: " + numero);
+                }
+            } while (numero >= 0);
+            
+            let mensaje = "Números ingresados: " + numeros.join(", ");
+            console.log(mensaje);
+            document.getElementById('result5').style.display = 'block';
+            document.getElementById('result5').innerHTML = mensaje + "<br>Total de números: " + numeros.length;
+        }
+
+        // Ejercicio 6
+        function ejercicio6() {
+            let palabra = prompt("Ingresa una palabra:");
+            let contador = 0;
+            
+            for (let i = 0; i < palabra.length; i++) {
+                if (palabra[i].toLowerCase() === 'a') {
+                    contador++;
+                }
+            }
+            
+            let mensaje = "La letra 'a' aparece " + contador + " veces en la palabra '" + palabra + "'";
+            console.log(mensaje);
+            document.getElementById('result6').style.display = 'block';
+            document.getElementById('result6').innerHTML = mensaje;
+        }
+    </script>
+</body>
+</html>

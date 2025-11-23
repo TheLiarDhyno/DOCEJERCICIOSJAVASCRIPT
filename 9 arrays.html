@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays - Ejercicios JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .ejercicio {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h3 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        button {
+            background-color: #1abc9c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button:hover {
+            background-color: #17a589;
+        }
+        .resultado {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #ecf0f1;
+            border-left: 4px solid #1abc9c;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicios: Arrays</h1>
+
+    <!-- Ejercicio 1 -->
+    <div class="ejercicio">
+        <h3>1. Array de 5 números - primer y último elemento</h3>
+        <button onclick="ejercicio1()">Ejecutar</button>
+        <div class="resultado" id="result1"></div>
+    </div>
+
+    <!-- Ejercicio 2 -->
+    <div class="ejercicio">
+        <h3>2. Array de ciudades - segunda ciudad</h3>
+        <button onclick="ejercicio2()">Ejecutar</button>
+        <div class="resultado" id="result2"></div>
+    </div>
+
+    <!-- Ejercicio 3 -->
+    <div class="ejercicio">
+        <h3>3. Pedir 5 números y mostrar la suma</h3>
+        <button onclick="ejercicio3()">Ejecutar</button>
+        <div class="resultado" id="result3"></div>
+    </div>
+
+    <!-- Ejercicio 4 -->
+    <div class="ejercicio">
+        <h3>4. Recorrer array de palabras</h3>
+        <button onclick="ejercicio4()">Ejecutar</button>
+        <div class="resultado" id="result4"></div>
+    </div>
+
+    <!-- Ejercicio 5 -->
+    <div class="ejercicio">
+        <h3>5. Pedir 5 nombres y almacenarlos</h3>
+        <button onclick="ejercicio5()">Ejecutar</button>
+        <div class="resultado" id="result5"></div>
+    </div>
+
+    <!-- Ejercicio 6 -->
+    <div class="ejercicio">
+        <h3>6. Contar números mayores a 50</h3>
+        <button onclick="ejercicio6()">Ejecutar</button>
+        <div class="resultado" id="result6"></div>
+    </div>
+
+    <script>
+        // Ejercicio 1
+        function ejercicio1() {
+            let numeros = [10, 25, 37, 42, 58];
+            let primero = numeros[0];
+            let ultimo = numeros[numeros.length - 1];
+            
+            console.log("Primer elemento: " + primero);
+            console.log("Último elemento: " + ultimo);
+            
+            document.getElementById('result1').style.display = 'block';
+            document.getElementById('result1').innerHTML = 
+                "Array: [" + numeros.join(", ") + "]<br>Primer elemento: " + primero + "<br>Último elemento: " + ultimo;
+        }
+
+        // Ejercicio 2
+        function ejercicio2() {
+            let ciudades = ["Guatemala", "Antigua", "Quetzaltenango", "Cobán", "Escuintla"];
+            let segundaCiudad = ciudades[1];
+            
+            console.log("Segunda ciudad: " + segundaCiudad);
+            
+            document.getElementById('result2').style.display = 'block';
+            document.getElementById('result2').innerHTML = 
+                "Ciudades: [" + ciudades.join(", ") + "]<br>Segunda ciudad: " + segundaCiudad;
+        }
+
+        // Ejercicio 3
+        function ejercicio3() {
+            let numeros = [];
+            let suma = 0;
+            
+            for (let i = 0; i < 5; i++) {
+                let num = prompt("Ingresa el número " + (i + 1) + ":");
+                num = parseFloat(num);
+                numeros.push(num);
+                suma += num;
+            }
+            
+            console.log("Números: " + numeros.join(", "));
+            console.log("Suma total: " + suma);
+            
+            document.getElementById('result3').style.display = 'block';
+            document.getElementById('result3').innerHTML = 
+                "Números ingresados: [" + numeros.join(", ") + "]<br>Suma total: " + suma;
+        }
+
+        // Ejercicio 4
+        function ejercicio4() {
+            let palabras = ["JavaScript", "HTML", "CSS", "React", "Node"];
+            let resultado = "Palabras en el array:<br>";
+            
+            for (let i = 0; i < palabras.length; i++) {
+                resultado += "- " + palabras[i] + "<br>";
+                console.log(palabras[i]);
+            }
+            
+            document.getElementById('result4').style.display = 'block';
+            document.getElementById('result4').innerHTML = resultado;
+        }
+
+        // Ejercicio 5
+        function ejercicio5() {
+            let nombres = [];
+            
+            for (let i = 0; i < 5; i++) {
+                let nombre = prompt("Ingresa el nombre " + (i + 1) + ":");
+                nombres.push(nombre);
+            }
+            
+            console.log("Array de nombres: " + nombres.join(", "));
+            
+            document.getElementById('result5').style.display = 'block';
+            document.getElementById('result5').innerHTML = 
+                "Nombres ingresados: [" + nombres.join(", ") + "]";
+        }
+
+        // Ejercicio 6
+        function ejercicio6() {
+            let numeros = [];
+            let contador = 0;
+            
+            for (let i = 0; i < 10; i++) {
+                let num = prompt("Ingresa el número " + (i + 1) + ":");
+                num = parseFloat(num);
+                numeros.push(num);
+                
+                if (num > 50) {
+                    contador++;
+                }
+            }
+            
+            console.log("Números ingresados: " + numeros.join(", "));
+            console.log("Cantidad de números mayores a 50: " + contador);
+            
+            document.getElementById('result6').style.display = 'block';
+            document.getElementById('result6').innerHTML = 
+                "Números: [" + numeros.join(", ") + "]<br>Cantidad de números mayores a 50: " + contador;
+        }
+    </script>
+</body>
+</html>

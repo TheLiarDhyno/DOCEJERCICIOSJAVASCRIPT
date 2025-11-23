@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condicionales SWITCH - Ejercicios JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .ejercicio {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h3 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        button {
+            background-color: #d35400;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button:hover {
+            background-color: #ba4a00;
+        }
+        .resultado {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #ecf0f1;
+            border-left: 4px solid #d35400;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicios: Condicionales SWITCH</h1>
+
+    <!-- Ejercicio 1 -->
+    <div class="ejercicio">
+        <h3>1. Día de la semana (1-7)</h3>
+        <button onclick="ejercicio1()">Ejecutar</button>
+        <div class="resultado" id="result1"></div>
+    </div>
+
+    <!-- Ejercicio 2 -->
+    <div class="ejercicio">
+        <h3>2. Calificación con letras (A, B, C)</h3>
+        <button onclick="ejercicio2()">Ejecutar</button>
+        <div class="resultado" id="result2"></div>
+    </div>
+
+    <!-- Ejercicio 3 -->
+    <div class="ejercicio">
+        <h3>3. Mes del año (1-12)</h3>
+        <button onclick="ejercicio3()">Ejecutar</button>
+        <div class="resultado" id="result3"></div>
+    </div>
+
+    <!-- Ejercicio 4 -->
+    <div class="ejercicio">
+        <h3>4. Par o Impar</h3>
+        <button onclick="ejercicio4()">Ejecutar</button>
+        <div class="resultado" id="result4"></div>
+    </div>
+
+    <!-- Ejercicio 5 -->
+    <div class="ejercicio">
+        <h3>5. Semáforo (verde, amarillo, rojo)</h3>
+        <button onclick="ejercicio5()">Ejecutar</button>
+        <div class="resultado" id="result5"></div>
+    </div>
+
+    <script>
+        // Ejercicio 1
+        function ejercicio1() {
+            let dia = prompt("Ingresa un número del 1 al 7:");
+            dia = parseInt(dia);
+            let nombreDia;
+            
+            switch(dia) {
+                case 1:
+                    nombreDia = "Lunes";
+                    break;
+                case 2:
+                    nombreDia = "Martes";
+                    break;
+                case 3:
+                    nombreDia = "Miércoles";
+                    break;
+                case 4:
+                    nombreDia = "Jueves";
+                    break;
+                case 5:
+                    nombreDia = "Viernes";
+                    break;
+                case 6:
+                    nombreDia = "Sábado";
+                    break;
+                case 7:
+                    nombreDia = "Domingo";
+                    break;
+                default:
+                    nombreDia = "Número inválido";
+            }
+            
+            console.log("Día: " + nombreDia);
+            document.getElementById('result1').style.display = 'block';
+            document.getElementById('result1').innerHTML = "Día: " + nombreDia;
+        }
+
+        // Ejercicio 2
+        function ejercicio2() {
+            let letra = prompt("Ingresa una letra (A, B o C):").toUpperCase();
+            let mensaje;
+            
+            switch(letra) {
+                case 'A':
+                    mensaje = "Excelente";
+                    break;
+                case 'B':
+                    mensaje = "Bien";
+                    break;
+                case 'C':
+                    mensaje = "Regular";
+                    break;
+                default:
+                    mensaje = "Letra no válida";
+            }
+            
+            console.log(mensaje);
+            document.getElementById('result2').style.display = 'block';
+            document.getElementById('result2').innerHTML = mensaje;
+        }
+
+        // Ejercicio 3
+        function ejercicio3() {
+            let mes = prompt("Ingresa un número del 1 al 12:");
+            mes = parseInt(mes);
+            let nombreMes;
+            
+            switch(mes) {
+                case 1:
+                    nombreMes = "Enero";
+                    break;
+                case 2:
+                    nombreMes = "Febrero";
+                    break;
+                case 3:
+                    nombreMes = "Marzo";
+                    break;
+                case 4:
+                    nombreMes = "Abril";
+                    break;
+                case 5:
+                    nombreMes = "Mayo";
+                    break;
+                case 6:
+                    nombreMes = "Junio";
+                    break;
+                case 7:
+                    nombreMes = "Julio";
+                    break;
+                case 8:
+                    nombreMes = "Agosto";
+                    break;
+                case 9:
+                    nombreMes = "Septiembre";
+                    break;
+                case 10:
+                    nombreMes = "Octubre";
+                    break;
+                case 11:
+                    nombreMes = "Noviembre";
+                    break;
+                case 12:
+                    nombreMes = "Diciembre";
+                    break;
+                default:
+                    nombreMes = "Mes inválido";
+            }
+            
+            console.log("Mes: " + nombreMes);
+            document.getElementById('result3').style.display = 'block';
+            document.getElementById('result3').innerHTML = "Mes: " + nombreMes;
+        }
+
+        // Ejercicio 4
+        function ejercicio4() {
+            let numero = prompt("Ingresa un número:");
+            numero = parseInt(numero);
+            let resto = numero % 2;
+            let mensaje;
+            
+            switch(resto) {
+                case 0:
+                    mensaje = "El número " + numero + " es Par";
+                    break;
+                case 1:
+                    mensaje = "El número " + numero + " es Impar";
+                    break;
+                default:
+                    mensaje = "Número no válido";
+            }
+            
+            console.log(mensaje);
+            document.getElementById('result4').style.display = 'block';
+            document.getElementById('result4').innerHTML = mensaje;
+        }
+
+        // Ejercicio 5
+        function ejercicio5() {
+            let color = prompt("Ingresa el color del semáforo (verde, amarillo, rojo):").toLowerCase();
+            let mensaje;
+            
+            switch(color) {
+                case 'verde':
+                    mensaje = "¡Puedes avanzar!";
+                    break;
+                case 'amarillo':
+                    mensaje = "Precaución, prepárate para detenerte";
+                    break;
+                case 'rojo':
+                    mensaje = "¡ALTO! Debes detenerte";
+                    break;
+                default:
+                    mensaje = "Color de semáforo no válido";
+            }
+            
+            console.log(mensaje);
+            document.getElementById('result5').style.display = 'block';
+            document.getElementById('result5').innerHTML = mensaje;
+        }
+    </script>
+</body>
+</html>

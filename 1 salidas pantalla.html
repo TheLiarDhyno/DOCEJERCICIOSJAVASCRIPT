@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salidas a Pantalla - Ejercicios JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .ejercicio {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h3 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .resultado {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #ecf0f1;
+            border-left: 4px solid #3498db;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicios: Salidas a Pantalla</h1>
+
+    <!-- Ejercicio 1 -->
+    <div class="ejercicio">
+        <h3>1. Mensaje de bienvenida en consola</h3>
+        <button onclick="ejercicio1()">Ejecutar</button>
+        <div class="resultado" id="result1"></div>
+    </div>
+
+    <!-- Ejercicio 2 -->
+    <div class="ejercicio">
+        <h3>2. Suma de dos números</h3>
+        <button onclick="ejercicio2()">Ejecutar</button>
+        <div class="resultado" id="result2"></div>
+    </div>
+
+    <!-- Ejercicio 3 -->
+    <div class="ejercicio">
+        <h3>3. Pedir nombre y saludar</h3>
+        <button onclick="ejercicio3()">Ejecutar</button>
+        <div class="resultado" id="result3"></div>
+    </div>
+
+    <!-- Ejercicio 4 -->
+    <div class="ejercicio">
+        <h3>4. Mostrar valor de variable</h3>
+        <button onclick="ejercicio4()">Ejecutar</button>
+        <div class="resultado" id="result4"></div>
+    </div>
+
+    <!-- Ejercicio 5 -->
+    <div class="ejercicio">
+        <h3>5. Mostrar fecha actual</h3>
+        <button onclick="ejercicio5()">Ejecutar</button>
+        <div class="resultado" id="result5"></div>
+    </div>
+
+    <!-- Ejercicio 6 -->
+    <div class="ejercicio">
+        <h3>6. Hola Mundo con document.write()</h3>
+        <button onclick="ejercicio6()">Ejecutar</button>
+        <div class="resultado" id="result6"></div>
+    </div>
+
+    <script>
+        // Ejercicio 1
+        function ejercicio1() {
+            console.log("¡Bienvenido a JavaScript!");
+            document.getElementById('result1').style.display = 'block';
+            document.getElementById('result1').innerHTML = "Revisa la consola del navegador (F12)";
+        }
+
+        // Ejercicio 2
+        function ejercicio2() {
+            let num1 = 15;
+            let num2 = 27;
+            let suma = num1 + num2;
+            console.log("La suma de " + num1 + " + " + num2 + " = " + suma);
+            document.getElementById('result2').style.display = 'block';
+            document.getElementById('result2').innerHTML = "La suma de " + num1 + " + " + num2 + " = " + suma;
+        }
+
+        // Ejercicio 3
+        function ejercicio3() {
+            let nombre = prompt("¿Cuál es tu nombre?");
+            if (nombre) {
+                alert("¡Hola " + nombre + "! Bienvenido");
+                document.getElementById('result3').style.display = 'block';
+                document.getElementById('result3').innerHTML = "Saludo mostrado en alert";
+            }
+        }
+
+        // Ejercicio 4
+        function ejercicio4() {
+            let miVariable = "Este es el valor de mi variable";
+            console.log(miVariable);
+            document.getElementById('result4').style.display = 'block';
+            document.getElementById('result4').innerHTML = "Valor: " + miVariable;
+        }
+
+        // Ejercicio 5
+        function ejercicio5() {
+            let fechaActual = new Date();
+            alert("Fecha actual: " + fechaActual);
+            document.getElementById('result5').style.display = 'block';
+            document.getElementById('result5').innerHTML = "Fecha actual: " + fechaActual;
+        }
+
+        // Ejercicio 6
+        function ejercicio6() {
+            let ventana = window.open('', '', 'width=400,height=300');
+            ventana.document.write('<h1 style="text-align:center; color:#3498db;">Hola, Mundo</h1>');
+            document.getElementById('result6').style.display = 'block';
+            document.getElementById('result6').innerHTML = "Se abrió una nueva ventana con el mensaje";
+        }
+    </script>
+</body>
+</html>

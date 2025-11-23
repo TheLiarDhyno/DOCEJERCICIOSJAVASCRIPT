@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos - Ejercicios JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .ejercicio {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h3 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        button {
+            background-color: #8e44ad;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button:hover {
+            background-color: #7d3c98;
+        }
+        .resultado {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #ecf0f1;
+            border-left: 4px solid #8e44ad;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicios: Objetos</h1>
+
+    <!-- Ejercicio 1 -->
+    <div class="ejercicio">
+        <h3>1. Objeto persona con propiedades</h3>
+        <button onclick="ejercicio1()">Ejecutar</button>
+        <div class="resultado" id="result1"></div>
+    </div>
+
+    <!-- Ejercicio 2 -->
+    <div class="ejercicio">
+        <h3>2. Objeto coche con método</h3>
+        <button onclick="ejercicio2()">Ejecutar</button>
+        <div class="resultado" id="result2"></div>
+    </div>
+
+    <!-- Ejercicio 3 -->
+    <div class="ejercicio">
+        <h3>3. Objeto rectángulo con método calcular área</h3>
+        <button onclick="ejercicio3()">Ejecutar</button>
+        <div class="resultado" id="result3"></div>
+    </div>
+
+    <!-- Ejercicio 4 -->
+    <div class="ejercicio">
+        <h3>4. Objeto libro con descripción</h3>
+        <button onclick="ejercicio4()">Ejecutar</button>
+        <div class="resultado" id="result4"></div>
+    </div>
+
+    <!-- Ejercicio 5 -->
+    <div class="ejercicio">
+        <h3>5. Objeto usuario con verificación de contraseña</h3>
+        <button onclick="ejercicio5()">Ejecutar</button>
+        <div class="resultado" id="result5"></div>
+    </div>
+
+    <!-- Ejercicio 6 -->
+    <div class="ejercicio">
+        <h3>6. Objeto gato con mensaje</h3>
+        <button onclick="ejercicio6()">Ejecutar</button>
+        <div class="resultado" id="result6"></div>
+    </div>
+
+    <script>
+        // Ejercicio 1
+        function ejercicio1() {
+            let persona = {
+                nombre: "Carlos González",
+                edad: 28,
+                ciudad: "Guatemala"
+            };
+            
+            console.log("Nombre: " + persona.nombre);
+            console.log("Edad: " + persona.edad);
+            console.log("Ciudad: " + persona.ciudad);
+            
+            document.getElementById('result1').style.display = 'block';
+            document.getElementById('result1').innerHTML = 
+                "Nombre: " + persona.nombre + "<br>Edad: " + persona.edad + "<br>Ciudad: " + persona.ciudad;
+        }
+
+        // Ejercicio 2
+        function ejercicio2() {
+            let coche = {
+                marca: "Toyota",
+                modelo: "Corolla",
+                año: 2023,
+                mostrarDescripcion: function() {
+                    return "Coche: " + this.marca + " " + this.modelo + " (" + this.año + ")";
+                }
+            };
+            
+            let descripcion = coche.mostrarDescripcion();
+            console.log(descripcion);
+            
+            document.getElementById('result2').style.display = 'block';
+            document.getElementById('result2').innerHTML = descripcion;
+        }
+
+        // Ejercicio 3
+        function ejercicio3() {
+            let rectangulo = {
+                ancho: 10,
+                alto: 5,
+                calcularArea: function() {
+                    return this.ancho * this.alto;
+                }
+            };
+            
+            let area = rectangulo.calcularArea();
+            let mensaje = "Rectángulo de " + rectangulo.ancho + " x " + rectangulo.alto + " = Área: " + area;
+            console.log(mensaje);
+            
+            document.getElementById('result3').style.display = 'block';
+            document.getElementById('result3').innerHTML = mensaje;
+        }
+
+        // Ejercicio 4
+        function ejercicio4() {
+            let libro = {
+                titulo: "Cien años de soledad",
+                autor: "Gabriel García Márquez",
+                año: 1967,
+                mostrarDescripcion: function() {
+                    console.log("Libro: '" + this.titulo + "' de " + this.autor + " (" + this.año + ")");
+                }
+            };
+            
+            libro.mostrarDescripcion();
+            
+            document.getElementById('result4').style.display = 'block';
+            document.getElementById('result4').innerHTML = 
+                "Libro: '" + libro.titulo + "'<br>Autor: " + libro.autor + "<br>Año: " + libro.año;
+        }
+
+        // Ejercicio 5
+        function ejercicio5() {
+            let usuario = {
+                nombre: "admin",
+                contraseña: "123456",
+                verificarContraseña: function(pass) {
+                    return this.contraseña === pass;
+                }
+            };
+            
+            let passwordIngresada = prompt("Ingresa la contraseña:");
+            let esCorrecta = usuario.verificarContraseña(passwordIngresada);
+            let mensaje = esCorrecta ? "¡Contraseña correcta!" : "Contraseña incorrecta";
+            
+            console.log(mensaje);
+            document.getElementById('result5').style.display = 'block';
+            document.getElementById('result5').innerHTML = mensaje;
+        }
+
+        // Ejercicio 6
+        function ejercicio6() {
+            let gato = {
+                nombre: "Michi",
+                edad: 3,
+                obtenerMensaje: function() {
+                    return "Mi gato se llama " + this.nombre + " y tiene " + this.edad + " años";
+                }
+            };
+            
+            let mensaje = gato.obtenerMensaje();
+            console.log(mensaje);
+            
+            document.getElementById('result6').style.display = 'block';
+            document.getElementById('result6').innerHTML = mensaje;
+        }
+    </script>
+</body>
+</html>

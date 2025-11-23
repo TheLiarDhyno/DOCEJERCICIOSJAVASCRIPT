@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condicionales IF ELSE - Ejercicios JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .ejercicio {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h3 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        button {
+            background-color: #16a085;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button:hover {
+            background-color: #138d75;
+        }
+        .resultado {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #ecf0f1;
+            border-left: 4px solid #16a085;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicios: Condicionales IF ELSE</h1>
+
+    <!-- Ejercicio 1 -->
+    <div class="ejercicio">
+        <h3>1. Temperatura: Frío o Calor</h3>
+        <button onclick="ejercicio1()">Ejecutar</button>
+        <div class="resultado" id="result1"></div>
+    </div>
+
+    <!-- Ejercicio 2 -->
+    <div class="ejercicio">
+        <h3>2. Mayor o menor de edad</h3>
+        <button onclick="ejercicio2()">Ejecutar</button>
+        <div class="resultado" id="result2"></div>
+    </div>
+
+    <!-- Ejercicio 3 -->
+    <div class="ejercicio">
+        <h3>3. Par o impar</h3>
+        <button onclick="ejercicio3()">Ejecutar</button>
+        <div class="resultado" id="result3"></div>
+    </div>
+
+    <!-- Ejercicio 4 -->
+    <div class="ejercicio">
+        <h3>4. Aprobado o no (>=60)</h3>
+        <button onclick="ejercicio4()">Ejecutar</button>
+        <div class="resultado" id="result4"></div>
+    </div>
+
+    <!-- Ejercicio 5 -->
+    <div class="ejercicio">
+        <h3>5. Positivo, negativo o cero</h3>
+        <button onclick="ejercicio5()">Ejecutar</button>
+        <div class="resultado" id="result5"></div>
+    </div>
+
+    <script>
+        // Ejercicio 1
+        function ejercicio1() {
+            let temperatura = prompt("Ingresa la temperatura en grados:");
+            temperatura = parseFloat(temperatura);
+            let mensaje;
+            
+            if (temperatura < 20) {
+                mensaje = "Hace frío (" + temperatura + "°)";
+            } else {
+                mensaje = "Hace calor (" + temperatura + "°)";
+            }
+            
+            console.log(mensaje);
+            document.getElementById('result1').style.display = 'block';
+            document.getElementById('result1').innerHTML = mensaje;
+        }
+
+        // Ejercicio 2
+        function ejercicio2() {
+            let edad = prompt("Ingresa tu edad:");
+            edad = parseInt(edad);
+            let mensaje;
+            
+            if (edad >= 18) {
+                mensaje = "Eres mayor de edad (Edad: " + edad + " años)";
+            } else {
+                mensaje = "Eres menor de edad (Edad: " + edad + " años)";
+            }
+            
+            console.log(mensaje);
+            document.getElementById('result2').style.display = 'block';
+            document.getElementById('result2').innerHTML = mensaje;
+        }
+
+        // Ejercicio 3
+        function ejercicio3() {
+            let numero = prompt("Ingresa un número:");
+            numero = parseInt(numero);
+            let mensaje;
+            
+            if (numero % 2 === 0) {
+                mensaje = "El número " + numero + " es par";
+            } else {
+                mensaje = "El número " + numero + " es impar";
+            }
+            
+            console.log(mensaje);
+            document.getElementById('result3').style.display = 'block';
+            document.getElementById('result3').innerHTML = mensaje;
+        }
+
+        // Ejercicio 4
+        function ejercicio4() {
+            let calificacion = prompt("Ingresa tu calificación (0-100):");
+            calificacion = parseFloat(calificacion);
+            let mensaje;
+            
+            if (calificacion >= 60) {
+                mensaje = "¡Has aprobado! Calificación: " + calificacion;
+            } else {
+                mensaje = "No has aprobado. Calificación: " + calificacion;
+            }
+            
+            console.log(mensaje);
+            document.getElementById('result4').style.display = 'block';
+            document.getElementById('result4').innerHTML = mensaje;
+        }
+
+        // Ejercicio 5
+        function ejercicio5() {
+            let numero = prompt("Ingresa un número:");
+            numero = parseFloat(numero);
+            let mensaje;
+            
+            if (numero > 0) {
+                mensaje = "El número " + numero + " es positivo";
+            } else if (numero < 0) {
+                mensaje = "El número " + numero + " es negativo";
+            } else {
+                mensaje = "El número es cero";
+            }
+            
+            console.log(mensaje);
+            document.getElementById('result5').style.display = 'block';
+            document.getElementById('result5').innerHTML = mensaje;
+        }
+    </script>
+</body>
+</html>

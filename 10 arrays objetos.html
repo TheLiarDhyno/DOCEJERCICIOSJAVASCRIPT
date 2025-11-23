@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays de Objetos - Ejercicios JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .ejercicio {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h3 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        button {
+            background-color: #e67e22;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button:hover {
+            background-color: #d35400;
+        }
+        .resultado {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #ecf0f1;
+            border-left: 4px solid #e67e22;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicios: Arrays de Objetos</h1>
+
+    <!-- Ejercicio 1 -->
+    <div class="ejercicio">
+        <h3>1. Array de personas - mostrar nombres</h3>
+        <button onclick="ejercicio1()">Ejecutar</button>
+        <div class="resultado" id="result1"></div>
+    </div>
+
+    <!-- Ejercicio 2 -->
+    <div class="ejercicio">
+        <h3>2. Array de coches - mostrar modelos</h3>
+        <button onclick="ejercicio2()">Ejecutar</button>
+        <div class="resultado" id="result2"></div>
+    </div>
+
+    <!-- Ejercicio 3 -->
+    <div class="ejercicio">
+        <h3>3. Array de productos - filtrar por precio > 100</h3>
+        <button onclick="ejercicio3()">Ejecutar</button>
+        <div class="resultado" id="result3"></div>
+    </div>
+
+    <!-- Ejercicio 4 -->
+    <div class="ejercicio">
+        <h3>4. Array de alumnos - mostrar aprobados</h3>
+        <button onclick="ejercicio4()">Ejecutar</button>
+        <div class="resultado" id="result4"></div>
+    </div>
+
+    <!-- Ejercicio 5 -->
+    <div class="ejercicio">
+        <h3>5. Array de libros - mostrar títulos</h3>
+        <button onclick="ejercicio5()">Ejecutar</button>
+        <div class="resultado" id="result5"></div>
+    </div>
+
+    <!-- Ejercicio 6 -->
+    <div class="ejercicio">
+        <h3>6. Array de películas - mostrar descripciones</h3>
+        <button onclick="ejercicio6()">Ejecutar</button>
+        <div class="resultado" id="result6"></div>
+    </div>
+
+    <script>
+        // Ejercicio 1
+        function ejercicio1() {
+            let personas = [
+                { nombre: "Ana García", edad: 25 },
+                { nombre: "Luis Morales", edad: 30 },
+                { nombre: "María López", edad: 28 }
+            ];
+            
+            let resultado = "Nombres de las personas:<br>";
+            for (let i = 0; i < personas.length; i++) {
+                resultado += "- " + personas[i].nombre + " (" + personas[i].edad + " años)<br>";
+                console.log(personas[i].nombre);
+            }
+            
+            document.getElementById('result1').style.display = 'block';
+            document.getElementById('result1').innerHTML = resultado;
+        }
+
+        // Ejercicio 2
+        function ejercicio2() {
+            let coches = [
+                { marca: "Toyota", modelo: "Corolla" },
+                { marca: "Honda", modelo: "Civic" },
+                { marca: "Ford", modelo: "Mustang" },
+                { marca: "Chevrolet", modelo: "Camaro" },
+                { marca: "Nissan", modelo: "Sentra" }
+            ];
+            
+            let resultado = "Modelos de coches:<br>";
+            for (let i = 0; i < coches.length; i++) {
+                resultado += "- " + coches[i].marca + " " + coches[i].modelo + "<br>";
+                console.log(coches[i].modelo);
+            }
+            
+            document.getElementById('result2').style.display = 'block';
+            document.getElementById('result2').innerHTML = resultado;
+        }
+
+        // Ejercicio 3
+        function ejercicio3() {
+            let productos = [
+                { nombre: "Laptop", precio: 1200 },
+                { nombre: "Mouse", precio: 25 },
+                { nombre: "Teclado", precio: 80 },
+                { nombre: "Monitor", precio: 350 },
+                { nombre: "Webcam", precio: 95 },
+                { nombre: "Auriculares", precio: 150 }
+            ];
+            
+            let resultado = "Productos con precio mayor a 100:<br>";
+            for (let i = 0; i < productos.length; i++) {
+                if (productos[i].precio > 100) {
+                    resultado += "- " + productos[i].nombre + ": Q" + productos[i].precio + "<br>";
+                    console.log(productos[i].nombre + ": Q" + productos[i].precio);
+                }
+            }
+            
+            document.getElementById('result3').style.display = 'block';
+            document.getElementById('result3').innerHTML = resultado;
+        }
+
+        // Ejercicio 4
+        function ejercicio4() {
+            let alumnos = [
+                { nombre: "Pedro Ramírez", nota: 75 },
+                { nombre: "Sofia Martínez", nota: 55 },
+                { nombre: "Diego Torres", nota: 82 },
+                { nombre: "Carmen Flores", nota: 48 },
+                { nombre: "Roberto Castillo", nota: 90 }
+            ];
+            
+            let resultado = "Alumnos que han aprobado (nota >= 60):<br>";
+            for (let i = 0; i < alumnos.length; i++) {
+                if (alumnos[i].nota >= 60) {
+                    resultado += "- " + alumnos[i].nombre + " (Nota: " + alumnos[i].nota + ")<br>";
+                    console.log(alumnos[i].nombre);
+                }
+            }
+            
+            document.getElementById('result4').style.display = 'block';
+            document.getElementById('result4').innerHTML = resultado;
+        }
+
+        // Ejercicio 5
+        function ejercicio5() {
+            let libros = [
+                { titulo: "El Quijote", autor: "Miguel de Cervantes" },
+                { titulo: "Cien años de soledad", autor: "Gabriel García Márquez" },
+                { titulo: "1984", autor: "George Orwell" },
+                { titulo: "El principito", autor: "Antoine de Saint-Exupéry" }
+            ];
+            
+            let resultado = "Títulos de libros:<br>";
+            for (let i = 0; i < libros.length; i++) {
+                resultado += "- " + libros[i].titulo + " de " + libros[i].autor + "<br>";
+                console.log(libros[i].titulo);
+            }
+            
+            document.getElementById('result5').style.display = 'block';
+            document.getElementById('result5').innerHTML = resultado;
+        }
+
+        // Ejercicio 6
+        function ejercicio6() {
+            let peliculas = [
+                { titulo: "El Padrino", director: "Francis Ford Coppola", año: 1972 },
+                { titulo: "Pulp Fiction", director: "Quentin Tarantino", año: 1994 },
+                { titulo: "El Origen", director: "Christopher Nolan", año: 2010 },
+                { titulo: "Matrix", director: "Las Wachowski", año: 1999 }
+            ];
+            
+            let resultado = "Descripción de películas:<br>";
+            for (let i = 0; i < peliculas.length; i++) {
+                let desc = "'" + peliculas[i].titulo + "' dirigida por " + peliculas[i].director + " en " + peliculas[i].año;
+                resultado += "- " + desc + "<br>";
+                console.log(desc);
+            }
+            
+            document.getElementById('result6').style.display = 'block';
+            document.getElementById('result6').innerHTML = resultado;
+        }
+    </script>
+</body>
+</html>
